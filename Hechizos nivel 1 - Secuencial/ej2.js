@@ -9,24 +9,19 @@ const leer = require("prompt-sync")();
  * 
  * Por ejemplo si hay 7 varitas y 4 libros a usar los ingredientes necesarios son 29
  */
-const DEF_NRO_ESTUDIANTES= 0
-const DEF_LIBROS_A_USAR=0
-const DEF_CANTIDAD_VARITAS=0
-const DEF_INGREDIENTES_TOTALES=0
+const DEF_LIBROS_A_USAR = 0
+const DEF_CANTIDAD_VARITAS = 0
+const DEF_INGREDIENTES_TOTALES = 0
 
 function main() {
-let numeroEstudiantes=DEF_NRO_ESTUDIANTES
-let librosAusar=DEF_LIBROS_A_USAR
-let cantidadVaritas=DEF_CANTIDAD_VARITAS
-let ingredientesTotales= DEF_INGREDIENTES_TOTALES
-console.log("Para saber el total de ingredientes necesarios, ingrese el numero de los estudiantes que tengan varitas, los que no tienen varitas no pueden participar");
-numeroEstudiantes= Number(leer());
-console.log("Ingrese cuantos libros van a usar");
-librosAusar= Number(leer());
-cantidadVaritas=numeroEstudiantes
-ingredientesTotales= (cantidadVaritas*3)+(2*librosAusar)
-console.log("El total de ingredientes a usar es:", ingredientesTotales);
+    let librosAusar = DEF_LIBROS_A_USAR
+    let cantidadVaritas = DEF_CANTIDAD_VARITAS
+    let ingredientesTotales = DEF_INGREDIENTES_TOTALES
+    console.log("Para saber el total de ingredientes necesarios, ingrese el numero total de varitas que tengan, ya que los estudiantes que no tienen varitas no pueden participar");
+    cantidadVaritas= Number(leer());
+    console.log("Ingrese cuantos libros van a usar");
+    librosAusar = Number(leer());
+    ingredientesTotales = (cantidadVaritas * 3) + (2 * librosAusar)
+    console.log("El total de ingredientes a usar es:", ingredientesTotales);
 }
-
-
 main();
