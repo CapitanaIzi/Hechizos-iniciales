@@ -19,10 +19,40 @@ Wingardium Leviosa
 Expelliarmus
 Avada Kedavra
  */
+const CODIGO_HECHIZO_1 = 1111
+const CODIGO_HECHIZO_2 = 2222
+const CODIGO_HECHIZO_3 = 3333
+const CODIGO_HECHIZO_4 = 4444
 
+const NOMBRE_HECHIZO_1 = "Expecto Patronum"
+const NOMBRE_HECHIZO_2 = "Wingardium Leviosa"
+const NOMBRE_HECHIZO_3 = "Expelliarmus"
+const NOMBRE_HECHIZO_4 = "Avada Kedavra"
+const DEF_MENSAJE = "El codigo es incorrecto"
 
 function main() {
-    
+    let codigoNumericoIngresado = 0
+
+    console.log("Ingrese un codigo numerico de 4 digitos");
+    codigoNumericoIngresado = Number(leer());
+    switch (codigoNumericoIngresado) {
+        case CODIGO_HECHIZO_1:
+            console.log(NOMBRE_HECHIZO_1);
+            break;
+        case CODIGO_HECHIZO_2:
+            console.log(NOMBRE_HECHIZO_2);
+            break;
+        case CODIGO_HECHIZO_3:
+            console.log(NOMBRE_HECHIZO_3);
+            break;
+        case CODIGO_HECHIZO_4:
+            console.log(NOMBRE_HECHIZO_4);
+            break;
+        default:
+            console.log(DEF_MENSAJE);
+            break;
+    }
+
 }
 
 

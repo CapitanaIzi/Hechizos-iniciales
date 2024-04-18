@@ -16,7 +16,7 @@ const NOMBRE_PLANTA_2 = "Valeriana"
 const NOMBRE_PLANTA_3 = "Bubotuber"
 const NOMBRE_PLANTA_4 = "Whomping Willow"
 function main() {
-    let plantaDelEstudiante =
+    let plantaDelEstudiante ="Error"
         console.log("Escriba el nombre de la planta que encontró para determinar si es apta para el examen de Herbología");
     plantaDelEstudiante = leer();
     if (plantaDelEstudiante == NOMBRE_PLANTA_1 || plantaDelEstudiante == NOMBRE_PLANTA_2) {
