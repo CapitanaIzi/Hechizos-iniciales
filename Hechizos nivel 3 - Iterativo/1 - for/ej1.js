@@ -20,7 +20,7 @@ const NOMBRE_HECHIZO_3 = "Expelliarmus"
 function main() {
     let nombreHechizoUsuario = "error"
     let cantidadDeIntentos = 4
-
+let verificado=false
 
     for (let i = 0; i < cantidadDeIntentos; i++) {
         console.log("Escribe el nombre de un hechizo, tendras", cantidadDeIntentos, "de intentos");
@@ -28,11 +28,12 @@ function main() {
         if (((nombreHechizoUsuario == NOMBRE_HECHIZO_1) || nombreHechizoUsuario == NOMBRE_HECHIZO_2) || nombreHechizoUsuario == NOMBRE_HECHIZO_3) {
             console.log("Felicitaciones! Lo hiciste bien");
             i = cantidadDeIntentos 
+            verificado=true
         } else {
             console.log("Vuelve intentar, te queda", cantidadDeIntentos - 1 - i, "de intentos");
         }
     }
-    if (((nombreHechizoUsuario !== NOMBRE_HECHIZO_1) && nombreHechizoUsuario !== NOMBRE_HECHIZO_2) && nombreHechizoUsuario !== NOMBRE_HECHIZO_3) {
+    if (!verificado) { // ! es para negarlo
         console.log("Terminaste todos tus intentos. Estudia y vuelve a intentarlo");
     }
 }
