@@ -1,4 +1,4 @@
-const leer = require("prompt-sync")();
+const leer = require ("prompt-sync")();
 
 /**
  * Ej 1
