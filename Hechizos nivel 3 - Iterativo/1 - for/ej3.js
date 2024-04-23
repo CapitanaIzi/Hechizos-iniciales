@@ -29,20 +29,54 @@ const NOMBRE_1_INGREDIENTE="sanguijuelas reventadas"
 const NOMBRE_2_INGREDIENTE="pulverizado de cuerno de Bicornio"
 const NOMBRE_3_INGREDIENTE="pelo de gato negro"
 const NOMBRE_4_INGREDIENTE="colas de serpiente"
+const CANTIDAD_INGREDIENTE_1= 3
+const CANTIDAD_INGREDIENTE_2=5
+const CANTIDAD_INGREDIENTE_3=1
+const CANTIDAD_INGREDIENTE_4=2
+
 const CANTIDAD_UNIDADES_2_INGREDIENTE= 5
-const MSJ_DE_BIENVENIDA=`los estudiantes deben seguir la receta exacta y medir cuidadosamente las cantidades de cada ingrediente. Cada ingrediente tiene un límite de intentos definido, y solo si se logra ingresar la cantidad correcta del ingrediente previo, el estudiante puede avanzar al siguiente. Si el estudiante no logra ingresar la cantidad correcta de un ingrediente dentro de los intentos permitidos, la preparación de la poción fallará y el proceso se verá interrumpido.`
+const MSJ_DE_BIENVENIDA=`Los estudiantes deben seguir la receta exacta y medir cuidadosamente las cantidades de cada ingrediente. Cada ingrediente tiene un límite de intentos definido, y solo si se logra ingresar la cantidad correcta del ingrediente previo, el estudiante puede avanzar al siguiente. Si el estudiante no logra ingresar la cantidad correcta de un ingrediente dentro de los intentos permitidos, la preparación de la poción fallará y el proceso se verá interrumpido.`
 const PASO_1_INTRUCCIONES= "Agrega las 3 sanguijuelas reventadas a la caldera."
-const PASO_2_INTRUCCIONES="Agita la mezcla lentamente durante 30 segundos en dirección horaria."
-const PASO_3_INTRUCCIONES="Incorpora las 5 unidades de pulverizado de cuerno de Bicornio y remueve con la cuchara de palo."
-const PASO_4_INTRUCCIONES="Añade el pelo de gato negro y mezcla suavemente en sentido antihorario durante 1 minuto."
-const PASO_5_INTRUCCIONES="Por último, agrega las 2 colas de serpiente y revuelve vigorosamente durante 2 minutos."
-const PASO_6_INTRUCCIONES="Deja que la poción repose durante 5 minutos antes de su uso."
+const PASO_2_INTRUCCIONES="Agita la mezcla lentamente durante 30 segundos en dirección horaria. Incorpora las 5 unidades de pulverizado de cuerno de Bicornio y remueve con la cuchara de palo."
+const PASO_3_INTRUCCIONES="Añade el pelo de gato negro y mezcla suavemente en sentido antihorario durante 1 minuto."
+const PASO_4_INTRUCCIONES="Por último, agrega las 2 colas de serpiente y revuelve vigorosamente durante 2 minutos. Deja que la poción repose durante 5 minutos antes de su uso."
+const CANTIDAD_INTENTOS_INGREDIENTE_1= 3
+const CANTIDAD_INTENTOS_INGREDIENTE_2= 4
+const CANTIDAD_INTENTOS_INGREDIENTE_3= 2
+const CANTIDAD_INTENTOS_INGREDIENTE_4= 1
 
 function main() {
+   let intentosDelIngrediente1="intento del ingrediente 1"
+   let intentosDelIngrediente2="intento del ingrediente 2"
+   let intentosDelIngrediente3="intento del ingrediente 3"
+   let intentosDelIngrediente4="intento del ingrediente 4"
+
    console.log(MSJ_DE_BIENVENIDA);
-   for (let i = 0; i <0 ; i++) {
-    
-      
+   for (let i = 0; i <CANTIDAD_INTENTOS_INGREDIENTE_1 ; i++) {
+    console.log(PASO_1_INTRUCCIONES);
+     intentosDelIngrediente1 =Number(leer());
+     if (intentosDelIngrediente1==CANTIDAD_INGREDIENTE_1) {
+      for (let i= 0; i < CANTIDAD_INTENTOS_INGREDIENTE_2; i++) {
+         console.log(PASO_2_INTRUCCIONES);
+     intentosDelIngrediente2 =Number(leer());
+     if (intentosDelIngrediente2==CANTIDAD_INGREDIENTE_2) {
+      for (let i= 0; i < CANTIDAD_INTENTOS_INGREDIENTE_3; i++) {
+         console.log(PASO_3_INTRUCCIONES);
+     intentosDelIngrediente3 =Number(leer());
+     if (intentosDelIngrediente3==CANTIDAD_INGREDIENTE_3) {
+      for (let i= 0; i < CANTIDAD_INTENTOS_INGREDIENTE_4; i++) {
+         console.log(PASO_4_INTRUCCIONES);
+     intentosDelIngrediente4 =Number(leer());
+     if (intentosDelIngrediente4==CANTIDAD_INGREDIENTE_4) {
+      console.log("Muy bien terminaste toda la receta, ya hiciste la pocion");
+      i=CANTIDAD_INTENTOS_INGREDIENTE_4+1
+     }
+      }
+     }
+      }
+     }
+      }
+     }
    }
 
 
