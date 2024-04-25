@@ -45,19 +45,13 @@ function main() {
             }
         } else {
             vidaActualEstudiante = vidaActualEstudiante - DANIO_X_TURNO_AL_ESTUDIANTE
-            console.log("Tu vida actual es:", vidaActualEstudiante, "recibiste un daño de:", DANIO_X_TURNO_AL_ESTUDIANTE/*, "Perdes 1 turno ahora tenes", cantidadIntentos - 2 - i*/);
+            console.log("Tu vida actual es:", vidaActualEstudiante, "recibiste un daño de:", DANIO_X_TURNO_AL_ESTUDIANTE);
             if (vidaActualEstudiante < 0) {
                 i = cantidadIntentos + 1
                 console.log("Game over, perdiste");
             }
-            /*if (vidaActualEstudiante-DANIO_X_TURNO_AL_ESTUDIANTE) {
-               i=i+1
-            }*/
         }
 
     }
-    /*if (vidaActualEstudiante<0){
-        console.log("Game over, perdiste");
-    }*/
 }
 main();

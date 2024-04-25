@@ -59,31 +59,26 @@ function main() {
          for (let i = 0; i < CANTIDAD_INTENTOS_INGREDIENTE_2; i++) {
             console.log(PASO_2_INTRUCCIONES);
             intentosDelIngrediente2 = Number(leer());
+            if (intentosDelIngrediente2 == CANTIDAD_INGREDIENTE_2) {
+               for (let i = 0; i < CANTIDAD_INTENTOS_INGREDIENTE_3; i++) {
+                  console.log(PASO_3_INTRUCCIONES);
+                  intentosDelIngrediente3 = Number(leer());
+                  if (intentosDelIngrediente3 == CANTIDAD_INGREDIENTE_3) {
+                     for (let i = 0; i < CANTIDAD_INTENTOS_INGREDIENTE_4; i++) {
+                        console.log(PASO_4_INTRUCCIONES);
+                        intentosDelIngrediente4 = Number(leer())
+                        if (intentosDelIngrediente4 == CANTIDAD_INGREDIENTE_4) {
+                           console.log("Muy bien terminaste toda la receta, ya hiciste la pocion");
+                           i = CANTIDAD_INTENTOS_INGREDIENTE_4 
+                        } else {
+                           console.log("Vuelve a estudiar ");
+                     }
+                  }
+               }
+            }
          }
-      } else {
-         console.log("Vuelve a estudiar ");
       }
-   }
-   if (intentosDelIngrediente2 == CANTIDAD_INGREDIENTE_2) {
-      for (let i = 0; i < CANTIDAD_INTENTOS_INGREDIENTE_3; i++) {
-         console.log(PASO_3_INTRUCCIONES);
-         intentosDelIngrediente3 = Number(leer());
-      }
-   } else {
-      console.log("Vuelve a estudiar ");
-   }
-   if (intentosDelIngrediente3 == CANTIDAD_INGREDIENTE_3) {
-      for (let i = 0; i < CANTIDAD_INTENTOS_INGREDIENTE_4; i++) {
-         console.log(PASO_4_INTRUCCIONES);
-         intentosDelIngrediente4 = Number(leer());
-      }
-   } else {
-      console.log("Vuelve a estudiar ");
-   } if (intentosDelIngrediente4 == CANTIDAD_INGREDIENTE_4) {
-      console.log("Muy bien terminaste toda la receta, ya hiciste la pocion");
-      i = CANTIDAD_INTENTOS_INGREDIENTE_4 + 1
    }
 }
-
-
+}
 main();
