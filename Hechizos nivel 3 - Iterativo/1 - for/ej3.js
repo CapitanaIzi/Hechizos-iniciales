@@ -25,16 +25,11 @@ const leer = require("prompt-sync")();
     Deja que la poción repose durante 5 minutos antes de su uso.
  * 
  */
-const NOMBRE_1_INGREDIENTE = "sanguijuelas reventadas"
-const NOMBRE_2_INGREDIENTE = "pulverizado de cuerno de Bicornio"
-const NOMBRE_3_INGREDIENTE = "pelo de gato negro"
-const NOMBRE_4_INGREDIENTE = "colas de serpiente"
+
 const CANTIDAD_INGREDIENTE_1 = 3
 const CANTIDAD_INGREDIENTE_2 = 5
 const CANTIDAD_INGREDIENTE_3 = 1
 const CANTIDAD_INGREDIENTE_4 = 2
-
-const CANTIDAD_UNIDADES_2_INGREDIENTE = 5
 const MSJ_DE_BIENVENIDA = `Los estudiantes deben seguir la receta exacta y medir cuidadosamente las cantidades de cada ingrediente. Cada ingrediente tiene un límite de intentos definido, y solo si se logra ingresar la cantidad correcta del ingrediente previo, el estudiante puede avanzar al siguiente. Si el estudiante no logra ingresar la cantidad correcta de un ingrediente dentro de los intentos permitidos, la preparación de la poción fallará y el proceso se verá interrumpido.`
 const PASO_1_INTRUCCIONES = "Agrega las 3 sanguijuelas reventadas a la caldera."
 const PASO_2_INTRUCCIONES = "Agita la mezcla lentamente durante 30 segundos en dirección horaria. Incorpora las 5 unidades de pulverizado de cuerno de Bicornio y remueve con la cuchara de palo."
@@ -56,20 +51,20 @@ function main() {
       console.log(PASO_1_INTRUCCIONES);
       intentosDelIngrediente1 = Number(leer());
       if (intentosDelIngrediente1 == CANTIDAD_INGREDIENTE_1) {
-         for (let i = 0; i < CANTIDAD_INTENTOS_INGREDIENTE_2; i++) {
+         for (let j = 0; j < CANTIDAD_INTENTOS_INGREDIENTE_2; j++) {
             console.log(PASO_2_INTRUCCIONES);
             intentosDelIngrediente2 = Number(leer());
             if (intentosDelIngrediente2 == CANTIDAD_INGREDIENTE_2) {
-               for (let i = 0; i < CANTIDAD_INTENTOS_INGREDIENTE_3; i++) {
+               for (let k = 0; k < CANTIDAD_INTENTOS_INGREDIENTE_3; k++) {
                   console.log(PASO_3_INTRUCCIONES);
                   intentosDelIngrediente3 = Number(leer());
                   if (intentosDelIngrediente3 == CANTIDAD_INGREDIENTE_3) {
-                     for (let i = 0; i < CANTIDAD_INTENTOS_INGREDIENTE_4; i++) {
+                     for (let w = 0; w < CANTIDAD_INTENTOS_INGREDIENTE_4; w++) {
                         console.log(PASO_4_INTRUCCIONES);
                         intentosDelIngrediente4 = Number(leer())
                         if (intentosDelIngrediente4 == CANTIDAD_INGREDIENTE_4) {
                            console.log("Muy bien terminaste toda la receta, ya hiciste la pocion");
-                           i = CANTIDAD_INTENTOS_INGREDIENTE_4 
+                           w = CANTIDAD_INTENTOS_INGREDIENTE_4 
                         } else {
                            console.log("Vuelve a estudiar ");
                      }
