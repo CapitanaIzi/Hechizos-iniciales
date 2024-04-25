@@ -51,22 +51,29 @@ function main() {
       console.log(PASO_1_INTRUCCIONES);
       intentosDelIngrediente1 = Number(leer());
       if (intentosDelIngrediente1 == CANTIDAD_INGREDIENTE_1) {
+         i = CANTIDAD_INTENTOS_INGREDIENTE_1
+
          for (let j = 0; j < CANTIDAD_INTENTOS_INGREDIENTE_2; j++) {
             console.log(PASO_2_INTRUCCIONES);
             intentosDelIngrediente2 = Number(leer());
             if (intentosDelIngrediente2 == CANTIDAD_INGREDIENTE_2) {
+               j = CANTIDAD_INTENTOS_INGREDIENTE_2
+
                for (let k = 0; k < CANTIDAD_INTENTOS_INGREDIENTE_3; k++) {
                   console.log(PASO_3_INTRUCCIONES);
                   intentosDelIngrediente3 = Number(leer());
-                  if (intentosDelIngrediente3 == CANTIDAD_INGREDIENTE_3) {
+                  if (intentosDelIngrediente3 == CANTIDAD_INGREDIENTE_3)
+                     k = CANTIDAD_INTENTOS_INGREDIENTE_3
+                  {
                      for (let w = 0; w < CANTIDAD_INTENTOS_INGREDIENTE_4; w++) {
                         console.log(PASO_4_INTRUCCIONES);
                         intentosDelIngrediente4 = Number(leer())
                         if (intentosDelIngrediente4 == CANTIDAD_INGREDIENTE_4) {
                            console.log("Muy bien terminaste toda la receta, ya hiciste la pocion");
-                           w = CANTIDAD_INTENTOS_INGREDIENTE_4 
+                           w = CANTIDAD_INTENTOS_INGREDIENTE_4
                         } else {
                            console.log("Vuelve a estudiar ");
+                        }
                      }
                   }
                }
@@ -74,6 +81,5 @@ function main() {
          }
       }
    }
-}
 }
 main();
