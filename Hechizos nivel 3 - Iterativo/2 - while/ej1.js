@@ -41,25 +41,24 @@ lograrás un ataque exitoso contra Voldemort y reducirás su vida. Sin embargo, 
 function main() {
     let numeroIngresado =DEF_NRO_INGRESADO
     let numeroDeHechizo = Math.floor(Math.random() * (NUMERO_MAXIMO_HECHIZO - NUMERO_MINIMO_HECHIZO) + NUMERO_MINIMO_HECHIZO);
-    let vidaActualEnemigo = DEF_VIDA_ACTUAL_ENEMIGO
-    let vidaActualJugador=DEF_VIDA_ACTUAL_JUGADOR
+    let vidaActualEnemigo =VIDA_INICIAL_ENEMIGA
+    let vidaActualJugador=VIDA_INICIAL_JUGADOR
     console.log(MSJ_DE_BIENVENIDA);
     
-while (vidaActualEnemigo>= VIDA_MINIMA_ENEMIGO || vidaActualJugador>=VIDA_MINIMA_JUGADOR ) {
+while (vidaActualEnemigo>= VIDA_MINIMA_ENEMIGO && vidaActualJugador >= VIDA_MINIMA_JUGADOR ) {
     console.log("Ataca. Ingresa un nro entre 1 y 3");
     numeroIngresado = Number(leer());
     if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 1) {
-        vidaActualEnemigo = VIDA_INICIAL_ENEMIGA - DANIO_AL_ENEMIGO_POR_HECHIZO_1
+        vidaActualEnemigo = vidaActualEnemigo - DANIO_AL_ENEMIGO_POR_HECHIZO_1
         console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo, "random", numeroDeHechizo);
     } else if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 2) {
-        vidaActualEnemigo = VIDA_INICIAL_ENEMIGA - DANIO_AL_ENEMIGO_POR_HECHIZO_2
+        vidaActualEnemigo = vidaActualEnemigo - DANIO_AL_ENEMIGO_POR_HECHIZO_2
         console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo, "random", numeroDeHechizo);
     } else if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 3) {
-        vidaActualEnemigo = VIDA_INICIAL_ENEMIGA - DANIO_AL_ENEMIGO_POR_HECHIZO_3
+        vidaActualEnemigo = vidaActualEnemigo - DANIO_AL_ENEMIGO_POR_HECHIZO_3
         console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo, "random", numeroDeHechizo);
     }
     else {
-        vidaActualJugador= VIDA_INICIAL_JUGADOR-DANIO_X_TURNO_AL_ESTUDIANTE
         vidaActualJugador=vidaActualJugador-DANIO_X_TURNO_AL_ESTUDIANTE
         console.log("Fallaste.Ahora tenes de vida",vidaActualJugador,"random", numeroDeHechizo);
     }
