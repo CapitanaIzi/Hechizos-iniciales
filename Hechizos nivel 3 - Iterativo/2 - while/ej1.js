@@ -33,8 +33,6 @@ const VIDA_MINIMA_ENEMIGO=-1
 const NUMERO_MAXIMO_HECHIZO=4
 const NUMERO_MINIMO_HECHIZO=1
 const DEF_NRO_INGRESADO=0
-const DEF_VIDA_ACTUAL_ENEMIGO=0
-const DEF_VIDA_ACTUAL_JUGADOR=0
 
 const MSJ_DE_BIENVENIDA = `Ingresarás un número que representa tu hechizo. Si ese número coincide con un número aleatorio el cual simula acertar un ataque, 
 lograrás un ataque exitoso contra Voldemort y reducirás su vida. Sin embargo, si no logras acertar el número, Voldemort contraatacará y perderás puntos de vida.`
