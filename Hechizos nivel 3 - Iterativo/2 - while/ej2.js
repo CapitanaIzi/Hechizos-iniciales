@@ -25,13 +25,27 @@ el número aleatorio generado por los Dementores, lograrás defenderte y protege
 const DEF_NRO_INGRESADO=0
 const PUNTOS_FELICIDAD_INI_JUGADOR= 1000
 const PUNTOS_FELICIDAD_INI_COMPA= 1000
-
+const VIDA_ENEMIGO=1000
 function main() {
     let numeroIngresado =DEF_NRO_INGRESADO
+let numerAleatorio=Math.floor(Math.random() * (4 - 0) + 0);
+let vidaActualJugador=PUNTOS_FELICIDAD_INI_JUGADOR
+let vidaActualCompa=PUNTOS_FELICIDAD_INI_COMPA
+let vidaActualEnemigo= VIDA_ENEMIGO
 
     console.log(MSJ_DE_BIENVENIDA);
-    console.log("Defiendete ingresa un nro de 1 a 3");
+while (vidaActualJugador>=0 && vidaActualEnemigo>=0 ) {
+    console.log("Defiendete ingresa un nro de 0 a 3");
     numeroIngresado = Number(leer());
+if (numeroIngresado!=numerAleatorio) {
+    vidaActualJugador= vidaActualJugador-100 
+    console.log("Vida actual es:", vidaActualJugador);
+}
+if (vidaActualJugador<500 && numeroIngresado==numerAleatorio) {
+    vidaActualEnemigo=vidaActualEnemigo-1000
+    console.log("Ganaste, una misteriosa persona derroto a los Dementores");
+}
+}
 
 }
 
