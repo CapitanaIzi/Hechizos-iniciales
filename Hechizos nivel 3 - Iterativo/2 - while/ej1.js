@@ -44,6 +44,7 @@ function main() {
     console.log(MSJ_DE_BIENVENIDA);
     
 while (vidaActualEnemigo>= VIDA_MINIMA_ENEMIGO && vidaActualJugador >= VIDA_MINIMA_JUGADOR ) {
+    numeroDeHechizo = Math.floor(Math.random() * (NUMERO_MAXIMO_HECHIZO - NUMERO_MINIMO_HECHIZO) + NUMERO_MINIMO_HECHIZO)
     console.log("Ataca. Ingresa un nro entre 1 y 3");
     numeroIngresado = Number(leer());
     if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 1) {

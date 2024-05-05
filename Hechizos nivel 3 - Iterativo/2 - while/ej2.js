@@ -20,34 +20,52 @@ Si tu felicidad y recuerdos alegres llegan a cero o la de tu ser querido entonce
 ¿Estás listo para adentrarte en esta emocionante aventura y demostrar tu valentía contra las fuerzas oscuras? ¡Adelante, el destino del bosque dependen de vos!
  */
 
-const MSJ_DE_BIENVENIDA=`Te encontrarás en un enfrentamiento constante contra los Dementores. Para defenderte, deberás ingresar números aleatorios entre 0 y 3. Si adivinas correctamente 
+const MSJ_DE_BIENVENIDA = `Te encontrarás en un enfrentamiento constante contra los Dementores. Para defenderte, deberás ingresar números aleatorios entre 0 y 3. Si adivinas correctamente 
 el número aleatorio generado por los Dementores, lograrás defenderte y proteger tus recuerdos.`
-const DEF_NRO_INGRESADO=0
-const PUNTOS_FELICIDAD_INI_JUGADOR= 1000
-const PUNTOS_FELICIDAD_INI_COMPA= 1000
-const VIDA_ENEMIGO=1000
+const DEF_NRO_INGRESADO = 0;
+const PUNTOS_FELICIDAD_INI_JUGADOR = 1000;
+const PUNTOS_FELICIDAD_INI_COMPA = 1000;
+const PROBABILIDAD_PERS_MISTERIOSA = 0.25;
+const NRO_MAYOR = 4;
+const NRO_MINIMO = 0;
 function main() {
-    let numeroIngresado =DEF_NRO_INGRESADO
-let numerAleatorio=Math.floor(Math.random() * (4 - 0) + 0);
-let vidaActualJugador=PUNTOS_FELICIDAD_INI_JUGADOR
-let vidaActualCompa=PUNTOS_FELICIDAD_INI_COMPA
-let vidaActualEnemigo= VIDA_ENEMIGO
+    let numeroIngresado = DEF_NRO_INGRESADO
+    let numerAleatorio = Math.floor(Math.random() * (NRO_MAYOR - NRO_MINIMO) + NRO_MINIMO);
+    let vidaActualJugador = PUNTOS_FELICIDAD_INI_JUGADOR
+    let vidaActualCompa = PUNTOS_FELICIDAD_INI_COMPA
+    let personaMisteriosa = true
+    let aparecioPersonaMisteriosa
+    let i = 0
 
     console.log(MSJ_DE_BIENVENIDA);
-while (vidaActualJugador>=0 && vidaActualEnemigo>=0 ) {
-    console.log("Defiendete ingresa un nro de 0 a 3");
-    numeroIngresado = Number(leer());
-if (numeroIngresado!=numerAleatorio) {
-    vidaActualJugador= vidaActualJugador-100 
-    console.log("Vida actual es:", vidaActualJugador);
-}
-if (vidaActualJugador<500 && numeroIngresado==numerAleatorio) {
-    vidaActualEnemigo=vidaActualEnemigo-1000
-    console.log("Ganaste, una misteriosa persona derroto a los Dementores");
-}
-}
+    while (vidaActualJugador >= 1 && vidaActualCompa >= 1 && personaMisteriosa) {
+        i = i + 1
+        numerAleatorio = Math.floor(Math.random() * (4 - 0) + 0);
+        console.log("Defiendete ingresa un nro de 0 a 3");
+        numeroIngresado = Number(leer());
+        if (numeroIngresado != numerAleatorio) {
+            vidaActualJugador = vidaActualJugador - 50
+            console.log("Vida actual es:", vidaActualJugador,);
+
+        } else {
+            vidaActualCompa = vidaActualCompa - 50
+            console.log("Vida actual de tu compañero es:", vidaActualCompa,);
+        }
+
+        if (i > 5) {
+
+            aparecioPersonaMisteriosa = Math.random() <= PROBABILIDAD_PERS_MISTERIOSA
+            console.log("¿Alguien nos vino a ayudar?", aparecioPersonaMisteriosa);
+            personaMisteriosa = !aparecioPersonaMisteriosa
+        }
+    }
+    if (aparecioPersonaMisteriosa) {
+        console.log("Ganaste, una misteriosa persona derroto a los Dementores", personaMisteriosa);
+
+    } else {
+        console.log("Perdiste");
+    }
 
 }
-
 
 main();
