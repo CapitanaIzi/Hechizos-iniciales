@@ -23,45 +23,43 @@ Si tu felicidad y recuerdos alegres llegan a cero o la de tu ser querido entonce
 const MSJ_DE_BIENVENIDA = `Te encontrarás en un enfrentamiento constante contra los Dementores. Para defenderte, deberás ingresar números aleatorios entre 0 y 3. Si adivinas correctamente 
 el número aleatorio generado por los Dementores, lograrás defenderte y proteger tus recuerdos.`
 const DEF_NRO_INGRESADO = 0;
-const PUNTOS_FELICIDAD_INI_JUGADOR = 1000;
-const PUNTOS_FELICIDAD_INI_COMPA = 1000;
+const PUNTOS_FELICIDAD_INICIALES = 1000;
 const PROBABILIDAD_PERS_MISTERIOSA = 0.25;
 const NRO_MAYOR = 4;
 const NRO_MINIMO = 0;
+const NRO_DANIO = 50
 function main() {
     let numeroIngresado = DEF_NRO_INGRESADO
     let numerAleatorio = Math.floor(Math.random() * (NRO_MAYOR - NRO_MINIMO) + NRO_MINIMO);
-    let vidaActualJugador = PUNTOS_FELICIDAD_INI_JUGADOR
-    let vidaActualCompa = PUNTOS_FELICIDAD_INI_COMPA
-    let personaMisteriosa = true
-    let aparecioPersonaMisteriosa
+    let vidaActualJugador = PUNTOS_FELICIDAD_INICIALES
+    let vidaActualCompa = PUNTOS_FELICIDAD_INICIALES
+    let personaMisteriosa = false
+    let nroParaPersMisteriosa = 5
     let i = 0
+    let ataqueAlJugador = true
 
     console.log(MSJ_DE_BIENVENIDA);
-    while (vidaActualJugador >= 1 && vidaActualCompa >= 1 && personaMisteriosa) {
-        i = i + 1
-        numerAleatorio = Math.floor(Math.random() * (4 - 0) + 0);
-        console.log("Defiendete ingresa un nro de 0 a 3");
-        numeroIngresado = Number(leer());
-        if (numeroIngresado != numerAleatorio) {
-            vidaActualJugador = vidaActualJugador - 50
-            console.log("Vida actual es:", vidaActualJugador,);
-
+    while (vidaActualJugador >= 1 && vidaActualCompa >= 1 && !personaMisteriosa) {
+        ({ numerAleatorio, numeroIngresado } = generar(numerAleatorio, numeroIngresado));
+        if (numerAleatorio == 3) {
+            vidaActualJugador = actualizarVida(vidaActualJugador);
+            vidaActualCompa = actualizarVida(vidaActualCompa);
+            console.log("Los ataco a ambos. Ahora Tu vida actual es:", vidaActualJugador, "Y la vida actual de tu compañero es:", vidaActualCompa);
+        } else if (numeroIngresado != numerAleatorio && ataqueAlJugador) {
+            vidaActualJugador = actualizarVida(vidaActualJugador);
+            console.log("Te ataco a vos. Tu vida actual es:", vidaActualJugador);
+        } else if (numeroIngresado == numerAleatorio) {
+            console.log(" Muy bien haz defendido");
         } else {
-            vidaActualCompa = vidaActualCompa - 50
-            console.log("Vida actual de tu compañero es:", vidaActualCompa,);
+            vidaActualCompa = actualizarVida(vidaActualCompa);
+            console.log("Le ataco a tu compañero. Ahora su vida es:", vidaActualCompa);
+        } if (i >= nroParaPersMisteriosa) {
+            personaMisteriosa = probabilidad(personaMisteriosa);
         }
-
-        if (i > 5) {
-
-            aparecioPersonaMisteriosa = Math.random() <= PROBABILIDAD_PERS_MISTERIOSA
-            console.log("¿Alguien nos vino a ayudar?", aparecioPersonaMisteriosa);
-            personaMisteriosa = !aparecioPersonaMisteriosa
-        }
-    }
-    if (aparecioPersonaMisteriosa) {
-        console.log("Ganaste, una misteriosa persona derroto a los Dementores", personaMisteriosa);
-
+        i++;
+        ataqueAlJugador = !ataqueAlJugador;
+    } if (personaMisteriosa) {
+        console.log("Ganaste, una misteriosa persona derroto a los Dementores");
     } else {
         console.log("Perdiste");
     }
@@ -69,3 +67,18 @@ function main() {
 }
 
 main();
+function generar(numerAleatorio, numeroIngresado) {
+    numerAleatorio = Math.floor(Math.random() * (NRO_MAYOR - NRO_MINIMO) + NRO_MINIMO);
+    console.log("Defiendete ingresa un nro de 0 a 3");
+    numeroIngresado = Number(leer());
+    return { numerAleatorio, numeroIngresado };
+}
+function actualizarVida(vidaActual) {
+    vidaActual = vidaActual - NRO_DANIO;
+    return vidaActual;
+}
+function probabilidad(aparecioPersonaMisteriosa) {
+    aparecioPersonaMisteriosa = Math.random() <= PROBABILIDAD_PERS_MISTERIOSA;
+    console.log("¿Alguien nos vino a ayudar?", aparecioPersonaMisteriosa);
+    return aparecioPersonaMisteriosa;
+}
