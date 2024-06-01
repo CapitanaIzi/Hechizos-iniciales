@@ -25,44 +25,49 @@ Considerar que:
 const VIDA_INICIAL_JUGADOR = 1000
 const VIDA_INICIAL_ENEMIGA = 1000
 const DANIO_X_TURNO_AL_ESTUDIANTE = 100
-const DANIO_AL_ENEMIGO_POR_HECHIZO_1 = 200
-const DANIO_AL_ENEMIGO_POR_HECHIZO_2 = 100
-const DANIO_AL_ENEMIGO_POR_HECHIZO_3 = 50
-const VIDA_MINIMA_JUGADOR=1
-const VIDA_MINIMA_ENEMIGO=-1
-const NUMERO_MAXIMO_HECHIZO=4
-const NUMERO_MINIMO_HECHIZO=1
-const DEF_NRO_INGRESADO=0
+const DANIO_AL_ENEMIGO_POR_HECHIZO_1 = 300
+const DANIO_AL_ENEMIGO_POR_HECHIZO_2 = 200
+const DANIO_AL_ENEMIGO_POR_HECHIZO_3 = 100
+const VIDA_MINIMA_JUGADOR = 1
+const VIDA_MINIMA_ENEMIGO = -1
+const NUMERO_MAXIMO_HECHIZO = 4
+const NUMERO_MINIMO_HECHIZO = 1
+const DEF_NRO_INGRESADO = 0
+const nroDeDanio = [
+    DANIO_AL_ENEMIGO_POR_HECHIZO_1,
+    DANIO_AL_ENEMIGO_POR_HECHIZO_2,
+    DANIO_AL_ENEMIGO_POR_HECHIZO_3
+]
 
 const MSJ_DE_BIENVENIDA = `Ingresarás un número que representa tu hechizo. Si ese número coincide con un número aleatorio el cual simula acertar un ataque, 
 lograrás un ataque exitoso contra Voldemort y reducirás su vida. Sin embargo, si no logras acertar el número, Voldemort contraatacará y perderás puntos de vida.`
 function main() {
-    let numeroIngresado =DEF_NRO_INGRESADO
+    let numeroIngresado = DEF_NRO_INGRESADO
     let numeroDeHechizo = Math.floor(Math.random() * (NUMERO_MAXIMO_HECHIZO - NUMERO_MINIMO_HECHIZO) + NUMERO_MINIMO_HECHIZO);
-    let vidaActualEnemigo =VIDA_INICIAL_ENEMIGA
-    let vidaActualJugador=VIDA_INICIAL_JUGADOR
+    let vidaActualEnemigo = VIDA_INICIAL_ENEMIGA
+    let vidaActualJugador = VIDA_INICIAL_JUGADOR
     console.log(MSJ_DE_BIENVENIDA);
-    
-while (vidaActualEnemigo>= VIDA_MINIMA_ENEMIGO && vidaActualJugador >= VIDA_MINIMA_JUGADOR ) {
-    numeroDeHechizo = Math.floor(Math.random() * (NUMERO_MAXIMO_HECHIZO - NUMERO_MINIMO_HECHIZO) + NUMERO_MINIMO_HECHIZO)
-    console.log("Ataca. Ingresa un nro entre 1 y 3");
-    numeroIngresado = Number(leer());
-    if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 1) {
-        vidaActualEnemigo = vidaActualEnemigo - DANIO_AL_ENEMIGO_POR_HECHIZO_1
-        console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo, "random", numeroDeHechizo);
-    } else if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 2) {
-        vidaActualEnemigo = vidaActualEnemigo - DANIO_AL_ENEMIGO_POR_HECHIZO_2
-        console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo, "random", numeroDeHechizo);
-    } else if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 3) {
-        vidaActualEnemigo = vidaActualEnemigo - DANIO_AL_ENEMIGO_POR_HECHIZO_3
-        console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo, "random", numeroDeHechizo);
+
+    while (vidaActualEnemigo >= VIDA_MINIMA_ENEMIGO && vidaActualJugador >= VIDA_MINIMA_JUGADOR) {
+        numeroDeHechizo = Math.floor(Math.random() * (NUMERO_MAXIMO_HECHIZO - NUMERO_MINIMO_HECHIZO) + NUMERO_MINIMO_HECHIZO)
+        console.log("Ataca. Ingresa un nro entre 1 y 3");
+        numeroIngresado = Number(leer());
+        if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 1) {
+            vidaActualEnemigo = vidaActualEnemigo - nroDeDanio[0];
+            console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo);
+        } else if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 2) {
+            vidaActualEnemigo = vidaActualEnemigo - nroDeDanio[1];
+            console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo);
+        } else if (numeroIngresado == numeroDeHechizo && numeroDeHechizo == 3) {
+            vidaActualEnemigo = vidaActualEnemigo - nroDeDanio[2];
+            console.log("Bien acertastes,vida actual del enemigo es: ", vidaActualEnemigo);
+        } else {
+            vidaActualJugador = vidaActualJugador - DANIO_X_TURNO_AL_ESTUDIANTE
+            console.log("Fallaste.Ahora tenes de vida", vidaActualJugador);
+        }
     }
-    else {
-        vidaActualJugador=vidaActualJugador-DANIO_X_TURNO_AL_ESTUDIANTE
-        console.log("Fallaste.Ahora tenes de vida",vidaActualJugador,"random", numeroDeHechizo);
-    }
-}
 }
 
 
 main();
+

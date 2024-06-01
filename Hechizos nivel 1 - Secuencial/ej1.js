@@ -17,13 +17,28 @@ function main() {
     let cantidadIngrediente1= DEF_CANTIDAD_INGREDIENTES
 let cantidadIngrediente2= DEF_CANTIDAD_INGREDIENTES
 let ingredientesTotales= DEF_INGREDIENTES_TOTALES
-console.log("Vamos hacer una poción. Para ello vamos a calcular los ingredientes necesarios. Pone en nro cuantos de", NOM_INGREDIENTE_1, "quieres poner.");
-cantidadIngrediente1= Number(leer());
-console.log("Ingresa en nro cuantos de", NOM_INGREDIENTE_2, "quieres agregar.");
-cantidadIngrediente2= Number(leer());
-ingredientesTotales= cantidadIngrediente1+ cantidadIngrediente2
-console.log("El total de los ingredientes son:",ingredientesTotales);
+    cantidadIngrediente1 = pedirIngrediente1(cantidadIngrediente1);
+    cantidadIngrediente2 = pedirIngrediente2(cantidadIngrediente2);
+    ingredientesTotales = totalIngredientes(ingredientesTotales, cantidadIngrediente1, cantidadIngrediente2);
 }
 
 
 main();
+
+function totalIngredientes(ingredientesTotales, cantidadIngrediente1, cantidadIngrediente2) {
+    ingredientesTotales = cantidadIngrediente1 + cantidadIngrediente2;
+    console.log("El total de los ingredientes son:", ingredientesTotales);
+    return ingredientesTotales;
+}
+
+function pedirIngrediente2(cantidadIngrediente2) {
+    console.log("Ingresa en nro cuantos de", NOM_INGREDIENTE_2, "quieres agregar.");
+    cantidadIngrediente2 = Number(leer());
+    return cantidadIngrediente2;
+}
+
+function pedirIngrediente1(cantidadIngrediente1) {
+    console.log("Vamos hacer una poción. Para ello vamos a calcular los ingredientes necesarios. Pone en nro cuantos de", NOM_INGREDIENTE_1, "quieres poner.");
+    cantidadIngrediente1 = Number(leer());
+    return cantidadIngrediente1;
+}
