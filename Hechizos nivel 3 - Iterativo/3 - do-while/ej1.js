@@ -17,10 +17,8 @@ const listaDeMsjs = [
 ];
 const listaNumMaximos = [-3, -100, 4]
 const listaNumMinimos = [20, -70, 12]
-const PROBABILIDAD_DERROTA_INMEDIATA = 0.05
-const AUMENTO_PROBABILIDAD_DERROTA = 0.024
-const PROBABILIDAD_RECHAZO_DANIO = 0.50
-const DISMINUCION_PROB_DE_RECHAZO = 0.11875
+
+
 const DANIO_A_LA_CORDURA = 5.7
 const DANIO_A_LA_SALUD = 10.4
 const estudiante = {
@@ -32,6 +30,7 @@ const MSJ_FINAL_VICTORIA = "¡Victoria para el estudiante valiente que, con cora
 const MSJ_FINAL_DERROTA = "En el oscuro manto de la derrota, el estudiante enfrentó una verdad devastadora: a pesar de sus esfuerzos incansables, los horrocruxes permanecen intactos, y la sombra del mal se alza triunfante sobre el mundo mágico. Aunque la batalla fue ardua y valiente, el destino ha dictado su veredicto, dejando al estudiante con el amargo sabor de la derrota. Pero incluso en la oscuridad más profunda, la llama de la esperanza aún arde, recordando que la lucha nunca termina y que el mañana siempre guarda la promesa de una nueva oportunidad para la redención y la victoria."
 
 function main() {
+   
     let derrota = false;
     let codigoAleatorio = 0
     let numeroIngresado = 0
@@ -41,11 +40,21 @@ function main() {
     let horrocruxes = [false, false, false, false, false];
     let generarNumeroAleatorio = [destruir1, destruir2, destruir3, destruir4, destruir5];
     let maxIntentos = 30
+    let probabilidadRechazoDanio =0
+    let probabilidadInicial= 0
     console.log(MSJ_DE_BIENVENIDA);
     do {
         contador++;
         if (contador > 1) {
-            derrota = probabilidadDerrota(derrota);
+            probabilidadInicial= calcularProbabilidadDerrota(contadorCondicional)
+            derrota=probabilidadDerrota(probabilidadInicial);
+            console.log(`la probabilidad de derrota es de: ${probabilidadInicial}`);
+            if (derrota=== true) {
+               console.log("fin");
+               
+                break; 
+              }
+            
         }
         codigoAleatorio = generarNumeroAleatorio[contadorCondicional]();
         numeroIngresado = Number(leer());
@@ -55,9 +64,12 @@ function main() {
            
             console.log(`Horrocruxe ${contadorCondicional + 1} destruido.`);
             contadorCondicional++;
+            
         } else {
             disminuirCorduraSalud(DANIO_A_LA_CORDURA, DANIO_A_LA_SALUD)
+            probabilidadRechazoDanio = calcularProbabilidadRecha(contadorCondicional)
             rechazoDanio = probabilidadDeRechazo(rechazoDanio)
+            console.log(`la probabilidad de rechazo es de:${probabilidadRechazoDanio}`);
             if (rechazoDanio == true) {
                 protegerCorduraOsalud();
             }
@@ -73,12 +85,17 @@ function main() {
 
 }
 main();
-
-function probabilidadDerrota(derrotaInmediata) {
-    derrotaInmediata = Math.random() <= PROBABILIDAD_DERROTA_INMEDIATA;
-    console.log("Te derrotaron inmediatamente?", derrotaInmediata);
-    return derrotaInmediata;
+function calcularProbabilidadDerrota(contadorCondicional) {
+    const probabilidadInicialDerrota = 0.05;
+    const AUMENTO_PROBABILIDAD_DERROTA = 0.024;
+    return  probabilidadInicialDerrota + (contadorCondicional * AUMENTO_PROBABILIDAD_DERROTA);
+  }
+function calcularProbabilidadRecha(contadorCondicional) {
+  const probabilidadInicial = 0.5;
+  const DISMINUCION_PROB_DE_RECHAZO = 0.11875;
+  return probabilidadInicial - (contadorCondicional * DISMINUCION_PROB_DE_RECHAZO);
 }
+
 function disminuirCorduraSalud(DanioCordura, DanioSalud) {
     estudiante.cordura -= DanioCordura;
     estudiante.salud -= DanioSalud;
@@ -86,10 +103,15 @@ function disminuirCorduraSalud(DanioCordura, DanioSalud) {
     console.log("Tu salud ahora es: " + estudiante.salud);
 }
 
-function probabilidadDeRechazo(rechazo_danio) {
-    rechazo_danio = Math.random() <= PROBABILIDAD_RECHAZO_DANIO;
+function probabilidadDeRechazo(rechazo_danio,probabilidadRechazoDanio) {
+    rechazo_danio = Math.random() <= probabilidadRechazoDanio;
     console.log("Rechazaste danio ?", rechazo_danio);
     return rechazo_danio;
+}
+function probabilidadDerrota(probabilidadInicial) {
+   let derrotaInmediata =Math.random() <=probabilidadInicial;
+    console.log("Te derrotaron inmediatamente?", derrotaInmediata);
+    return derrotaInmediata;
 }
 function protegerCorduraOsalud() {
     let opcionIngresada = "opcion ingresada"
