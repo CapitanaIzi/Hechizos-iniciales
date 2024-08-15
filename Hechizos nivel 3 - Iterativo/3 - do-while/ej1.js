@@ -138,40 +138,35 @@ function protegerCorduraOsalud() {
 }
 function destruir1() {
     let codigoAleatorio = Math.floor(Math.random() * (listaNumMaximos[0] - listaNumMinimos[0]) + listaNumMinimos[0]);
-    codigoAleatorio = Math.floor(Math.random() * (6 - 1) + 1); //cambie los valores por mientras, para que pueda pasar al proximo, con los valores reales funciona bien todo.
-    console.log("entre 6 y 1");
+    codigoAleatorio = Math.floor(Math.random() * (listaNumMaximos[0] - listaNumMinimos[0]) + listaNumMinimos[0]); 
+    console.log(listaDeMsjs[0]);
     return codigoAleatorio;
 }
 
 function destruir2() {
     let codigoAleatorio = Math.floor(Math.random() * (listaNumMaximos[1] - listaNumMinimos[1]) + listaNumMinimos[1]);
-    codigoAleatorio = Math.floor(Math.random() * (6 - 1) + 1);
+    codigoAleatorio = Math.floor(Math.random() * (listaNumMaximos[1] - listaNumMinimos[1]) + listaNumMinimos[1]);
     console.log(listaDeMsjs[1]);
     return codigoAleatorio;
-    //(listaNumMaximos[1] - listaNumMinimos[1]) + listaNumMinimos[1]);
 }
 function destruir3() {
     let codigoAleatorio = Math.floor(Math.random() * (listaNumMaximos[2] - listaNumMinimos[2]) + listaNumMinimos[2]);
-    codigoAleatorio = Math.floor(Math.random() * (6 - 1) + 1);
+    codigoAleatorio = Math.floor(Math.random() * (listaNumMaximos[2] - listaNumMinimos[2]) + listaNumMinimos[2]);
     console.log(listaDeMsjs[2]);
     return codigoAleatorio;
-    //listaNumMaximos[2] - listaNumMinimos[2]) + listaNumMinimos[2]
+    
 }
 function destruir4() {
-    let codigoAleatorio = Math.floor(Math.random() * (listaNumMaximos[0] - listaNumMinimos[0]) + listaNumMinimos[0]);
-    codigoAleatorio = Math.floor(Math.random() * (6 - 1) + 1);
-    //let codigoAleatorioEntreAyE = String.fromCharCode(Math.floor(Math.random() * (101 - 97)) + 97);
-    //codigoAleatorioEntreAyE = String.fromCharCode(Math.floor(Math.random() * (101 - 97)) + 97);
+    let codigoAleatorioEntreAyE = String.fromCharCode(Math.floor(Math.random() * (101 - 97)) + 97);
+    codigoAleatorioEntreAyE = String.fromCharCode(Math.floor(Math.random() * (101 - 97)) + 97);
     console.log(listaDeMsjs[3]);
-    return codigoAleatorio;
+    return codigoAleatorioEntreAyE;
 
 }
 function destruir5() {
-    let codigoAleatorio = Math.floor(Math.random() * (listaNumMaximos[0] - listaNumMinimos[0]) + listaNumMinimos[0]);
-    codigoAleatorio = Math.floor(Math.random() * (6 - 1) + 1);
-    //let codigoAleatorioEntreHyK = String.fromCharCode(Math.floor(Math.random() * (107 - 104)) + 104);
-    //codigoAleatorioEntreHyK = String.fromCharCode(Math.floor(Math.random() * (107 - 104)) + 104);
+    let codigoAleatorioEntreHyK = String.fromCharCode(Math.floor(Math.random() * (107 - 104)) + 104);
+    codigoAleatorioEntreHyK = String.fromCharCode(Math.floor(Math.random() * (107 - 104)) + 104);
     console.log(listaDeMsjs[4]);
-    return codigoAleatorio;
+    return codigoAleatorioEntreHyK;
 
 }
